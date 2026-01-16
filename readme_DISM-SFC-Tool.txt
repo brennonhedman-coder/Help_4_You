@@ -11,7 +11,7 @@ complete repair sequence with real-time output display.
 
 VERSION HISTORY
 ---------------
-v1: Original implementation with basic GUI and manual operation buttons
+v1: Original implementation, vibe-coded into existance using Claude, with basic GUI and manual operation buttons
 
 v2: Added smart sequence logic
     - Skips RestoreHealth if ScanHealth finds no corruption
@@ -76,3 +76,4 @@ LAUNCHING THE TOOL
 Option 1: Right-click the .ps1 file > Run with PowerShell
 Option 2: Create a shortcut with target:
           powershell.exe -ExecutionPolicy Bypass -File "path\to\DISM-SFC-Tool-v3.ps1"
+
