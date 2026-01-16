@@ -1,0 +1,242 @@
+#Requires -RunAsAdministrator
+Add-Type -AssemblyName PresentationFramework, System.Windows.Forms
+
+# XAML GUI Definition
+[xml]$XAML = @"
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DISM &amp; SFC Repair Tool" Height="500" Width="700"
+        WindowStartupLocation="CenterScreen" Background="#1E1E1E">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Text="Windows System Repair Tool"
+                   FontSize="20" FontWeight="Bold" Foreground="#0078D4"
+                   Margin="0,0,0,10"/>
+
+        <!-- Buttons -->
+        <WrapPanel Grid.Row="1" Margin="0,0,0,10">
+            <Button Name="btnCheckHealth" Content="DISM CheckHealth"
+                    Width="130" Height="35" Margin="0,0,10,5" Background="#0078D4"
+                    Foreground="White" BorderThickness="0"/>
+            <Button Name="btnScanHealth" Content="DISM ScanHealth"
+                    Width="130" Height="35" Margin="0,0,10,5" Background="#0078D4"
+                    Foreground="White" BorderThickness="0"/>
+            <Button Name="btnRestoreHealth" Content="DISM RestoreHealth"
+                    Width="140" Height="35" Margin="0,0,10,5" Background="#0078D4"
+                    Foreground="White" BorderThickness="0"/>
+            <Button Name="btnSFC" Content="SFC /scannow"
+                    Width="110" Height="35" Margin="0,0,10,5" Background="#0078D4"
+                    Foreground="White" BorderThickness="0"/>
+            <Button Name="btnRunAll" Content="Run All (Sequence)"
+                    Width="140" Height="35" Margin="0,0,10,5" Background="#107C10"
+                    Foreground="White" BorderThickness="0" FontWeight="Bold"/>
+        </WrapPanel>
+
+        <!-- Output Box -->
+        <TextBox Name="txtOutput" Grid.Row="2"
+                 Background="#0C0C0C" Foreground="#33FF33"
+                 FontFamily="Consolas" FontSize="12"
+                 IsReadOnly="True" TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 AcceptsReturn="True" Padding="5"/>
+
+        <!-- Status Bar -->
+        <Grid Grid.Row="3" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="txtStatus" Grid.Column="0" Foreground="#888888"
+                       VerticalAlignment="Center" Text="Ready"/>
+            <Button Name="btnClear" Grid.Column="1" Content="Clear Output"
+                    Width="100" Height="30" Background="#333333"
+                    Foreground="White" BorderThickness="0"/>
+        </Grid>
+    </Grid>
+</Window>
+"@
+
+# Load XAML
+$Reader = (New-Object System.Xml.XmlNodeReader $XAML)
+$Window = [Windows.Markup.XamlReader]::Load($Reader)
+
+# Get Controls
+$btnCheckHealth = $Window.FindName("btnCheckHealth")
+$btnScanHealth = $Window.FindName("btnScanHealth")
+$btnRestoreHealth = $Window.FindName("btnRestoreHealth")
+$btnSFC = $Window.FindName("btnSFC")
+$btnRunAll = $Window.FindName("btnRunAll")
+$btnClear = $Window.FindName("btnClear")
+$txtOutput = $Window.FindName("txtOutput")
+$txtStatus = $Window.FindName("txtStatus")
+
+# Helper function to append output
+function Write-Output-Box {
+    param([string]$Text)
+    $txtOutput.Dispatcher.Invoke([action]{
+        $txtOutput.AppendText("$Text`r`n")
+        $txtOutput.ScrollToEnd()
+    })
+}
+
+function Set-Status {
+    param([string]$Text)
+    $txtStatus.Dispatcher.Invoke([action]{
+        $txtStatus.Text = $Text
+    })
+}
+
+function Set-ButtonsEnabled {
+    param([bool]$Enabled)
+    $Window.Dispatcher.Invoke([action]{
+        $btnCheckHealth.IsEnabled = $Enabled
+        $btnScanHealth.IsEnabled = $Enabled
+        $btnRestoreHealth.IsEnabled = $Enabled
+        $btnSFC.IsEnabled = $Enabled
+        $btnRunAll.IsEnabled = $Enabled
+    })
+}
+
+# Function to run a command and capture output
+function Run-Command {
+    param(
+        [string]$DisplayName,
+        [string]$Command,
+        [string]$Arguments
+    )
+
+    Write-Output-Box "=============================================="
+    Write-Output-Box "Starting: $DisplayName"
+    Write-Output-Box "Command: $Command $Arguments"
+    Write-Output-Box "=============================================="
+    Write-Output-Box ""
+
+    Set-Status "Running: $DisplayName..."
+
+    $ProcessInfo = New-Object System.Diagnostics.ProcessStartInfo
+    $ProcessInfo.FileName = $Command
+    $ProcessInfo.Arguments = $Arguments
+    $ProcessInfo.RedirectStandardOutput = $true
+    $ProcessInfo.RedirectStandardError = $true
+    $ProcessInfo.UseShellExecute = $false
+    $ProcessInfo.CreateNoWindow = $true
+
+    $Process = New-Object System.Diagnostics.Process
+    $Process.StartInfo = $ProcessInfo
+    $Process.Start() | Out-Null
+
+    # Read output line by line
+    while (-not $Process.StandardOutput.EndOfStream) {
+        $Line = $Process.StandardOutput.ReadLine()
+        if ($Line) {
+            Write-Output-Box $Line
+        }
+        [System.Windows.Forms.Application]::DoEvents()
+    }
+
+    # Capture any errors
+    $ErrorOutput = $Process.StandardError.ReadToEnd()
+    if ($ErrorOutput) {
+        Write-Output-Box "ERRORS: $ErrorOutput"
+    }
+
+    $Process.WaitForExit()
+    $ExitCode = $Process.ExitCode
+
+    Write-Output-Box ""
+    Write-Output-Box "$DisplayName completed with exit code: $ExitCode"
+    Write-Output-Box ""
+
+    return $ExitCode
+}
+
+# Button Click Handlers
+$btnCheckHealth.Add_Click({
+    Set-ButtonsEnabled $false
+    Run-Command -DisplayName "DISM CheckHealth" -Command "DISM.exe" -Arguments "/Online /Cleanup-Image /CheckHealth"
+    Set-Status "Ready"
+    Set-ButtonsEnabled $true
+})
+
+$btnScanHealth.Add_Click({
+    Set-ButtonsEnabled $false
+    Run-Command -DisplayName "DISM ScanHealth" -Command "DISM.exe" -Arguments "/Online /Cleanup-Image /ScanHealth"
+    Set-Status "Ready"
+    Set-ButtonsEnabled $true
+})
+
+$btnRestoreHealth.Add_Click({
+    Set-ButtonsEnabled $false
+    Run-Command -DisplayName "DISM RestoreHealth" -Command "DISM.exe" -Arguments "/Online /Cleanup-Image /RestoreHealth"
+    Set-Status "Ready"
+    Set-ButtonsEnabled $true
+})
+
+$btnSFC.Add_Click({
+    Set-ButtonsEnabled $false
+    Run-Command -DisplayName "SFC Scannow" -Command "sfc.exe" -Arguments "/scannow"
+    Set-Status "Ready"
+    Set-ButtonsEnabled $true
+})
+
+$btnRunAll.Add_Click({
+    Set-ButtonsEnabled $false
+
+    Write-Output-Box "######################################################"
+    Write-Output-Box "#          STARTING FULL REPAIR SEQUENCE             #"
+    Write-Output-Box "######################################################"
+    Write-Output-Box ""
+
+    # Step 1: CheckHealth (quick)
+    $Result = Run-Command -DisplayName "DISM CheckHealth" -Command "DISM.exe" -Arguments "/Online /Cleanup-Image /CheckHealth"
+
+    # Step 2: ScanHealth (takes longer, more thorough)
+    $Result = Run-Command -DisplayName "DISM ScanHealth" -Command "DISM.exe" -Arguments "/Online /Cleanup-Image /ScanHealth"
+
+    # Step 3: RestoreHealth (repairs issues found)
+    $Result = Run-Command -DisplayName "DISM RestoreHealth" -Command "DISM.exe" -Arguments "/Online /Cleanup-Image /RestoreHealth"
+
+    # Step 4: SFC (checks and repairs system files)
+    $Result = Run-Command -DisplayName "SFC Scannow" -Command "sfc.exe" -Arguments "/scannow"
+
+    Write-Output-Box "######################################################"
+    Write-Output-Box "#          FULL REPAIR SEQUENCE COMPLETE             #"
+    Write-Output-Box "######################################################"
+    Write-Output-Box ""
+    Write-Output-Box "Review the output above for any issues."
+    Write-Output-Box "A system restart may be required for changes to take effect."
+
+    Set-Status "Complete - Full sequence finished"
+    Set-ButtonsEnabled $true
+})
+
+$btnClear.Add_Click({
+    $txtOutput.Clear()
+    Set-Status "Ready"
+})
+
+# Show startup message
+$txtOutput.Text = @"
+=======================================================================
+  DISM & SFC Repair Tool
+=======================================================================
+
+NOTE: DISM and SFC operations can take a significant amount of time
+to complete. It is normal behavior for this window to periodically
+go into a "Not Responding" state during these operations.
+
+Please be patient and allow the process to finish.
+
+=======================================================================
+
+"@
+
+# Show Window
+$Window.ShowDialog() | Out-Null
