@@ -322,7 +322,7 @@ $btnDeviceReg.Add_Click({
         # MDM Status
         if ($mdmUrl) {
             Write-Output-Box "" "Info"
-            Write-Output-Box "MDM Enrollment: YES (Intune managed)" "Success"
+            Write-Output-Box "MDM Enrollment: YES (Intune autopiloted device)" "Success"
         }
     }
     catch {
@@ -423,6 +423,7 @@ $btnClear.Add_Click({
 
 Write-Output-Box "Ready. Select an action above."
 $window.ShowDialog() | Out-Null
+
 
 
 
