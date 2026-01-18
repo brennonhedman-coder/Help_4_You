@@ -254,11 +254,15 @@ $btnTestTrust.Add_Click({
             Write-Output-Box "Domain trust relationship is BROKEN." "Error"
             Write-Output-Box "" "Info"
             Write-Output-Box "REMEDIATION STEPS:" "Warning"
-            Write-Output-Box "  1. Remove computer from domain (use local admin)" "Info"
-            Write-Output-Box "  2. Reboot" "Info"
-            Write-Output-Box "  3. Delete computer object from AD" "Info"
-            Write-Output-Box "  4. Rejoin computer to domain" "Info"
-            Write-Output-Box "  5. Reboot" "Info"
+            Write-Output-Box "  1. Check what network you're on" "Info"
+            Write-Output-Box "  2. Remove computer from domain (use local admin)" "Info"
+            Write-Output-Box "  3. Reboot" "Info"
+            Write-Output-Box "  4. Delete computer object from AD" "Info"
+            Write-Output-Box "  5. Rejoin computer to domain" "Info"
+            Write-Output-Box "  6. Reboot" "Info"            Write-Output-Box "  2. Reboot" "Info"
+            Write-Output-Box "  7. Delete computer object from AD" "Info"
+            Write-Output-Box "  8. Rejoin computer to domain" "Info"
+            Write-Output-Box "  9. Reboot" "Info"
         }
     }
     catch {
@@ -422,4 +426,5 @@ $btnClear.Add_Click({
 
 Write-Output-Box "Ready. Select an action above."
 $window.ShowDialog() | Out-Null
+
 
