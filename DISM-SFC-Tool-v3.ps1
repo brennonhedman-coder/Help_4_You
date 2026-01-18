@@ -17,7 +17,7 @@ Add-Type -AssemblyName PresentationFramework, System.Windows.Forms
 
         <!-- Header -->
         <TextBlock Grid.Row="0" Text="Windows System Repair Tool"
-                   FontSize="20" FontWeight="Bold" Foreground="#0078D4"
+                   FontSize="20" FontWeight="Bold" Foreground="#ffffff"
                    Margin="0,0,0,10"/>
 
         <!-- Buttons -->
@@ -308,3 +308,4 @@ The CLOSE button will become available after any operation completes.
 
 # Show Window
 $Window.ShowDialog() | Out-Null
+
