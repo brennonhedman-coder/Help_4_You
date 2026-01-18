@@ -16,7 +16,7 @@ Add-Type -AssemblyName WindowsBase
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Help Desk Quick Actions"
     Width="625"
-    Height="565"
+    Height="635"
     WindowStartupLocation="CenterScreen"
     ResizeMode="NoResize"
     Background="#1e1e1e">
@@ -422,3 +422,4 @@ $btnClear.Add_Click({
 
 Write-Output-Box "Ready. Select an action above."
 $window.ShowDialog() | Out-Null
+
