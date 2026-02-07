@@ -1,0 +1,905 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2024-01-15",
+    "description": "Trusted software publishers and applications database for Help Desk verification"
+  },
+  "publisherTiers": {
+    "trusted": "Major, well-known publisher with strong security track record",
+    "verified": "Known publisher, generally safe but verify signatures",
+    "community": "Open source / community project - extra verification recommended",
+    "caution": "Known software but often bundled with unwanted software"
+  },
+  "publishers": {
+    "microsoft": {
+      "name": "Microsoft Corporation",
+      "tier": "trusted",
+      "signingNames": ["Microsoft Corporation", "Microsoft Windows", "Microsoft Code Signing PCA"]
+    },
+    "google": {
+      "name": "Google LLC",
+      "tier": "trusted",
+      "signingNames": ["Google LLC", "Google Inc"]
+    },
+    "mozilla": {
+      "name": "Mozilla Corporation",
+      "tier": "trusted",
+      "signingNames": ["Mozilla Corporation"]
+    },
+    "adobe": {
+      "name": "Adobe Inc.",
+      "tier": "trusted",
+      "signingNames": ["Adobe Inc.", "Adobe Systems Incorporated"]
+    },
+    "apple": {
+      "name": "Apple Inc.",
+      "tier": "trusted",
+      "signingNames": ["Apple Inc."]
+    },
+    "videolan": {
+      "name": "VideoLAN Organization",
+      "tier": "community",
+      "signingNames": ["VideoLAN"]
+    },
+    "7zip": {
+      "name": "Igor Pavlov",
+      "tier": "community",
+      "signingNames": ["Igor Pavlov"]
+    },
+    "notepadpp": {
+      "name": "Notepad++ Team",
+      "tier": "community",
+      "signingNames": ["Notepad++"]
+    },
+    "zoom": {
+      "name": "Zoom Video Communications, Inc.",
+      "tier": "trusted",
+      "signingNames": ["Zoom Video Communications, Inc."]
+    },
+    "slack": {
+      "name": "Slack Technologies, LLC",
+      "tier": "trusted",
+      "signingNames": ["Slack Technologies", "Slack Technologies, LLC"]
+    },
+    "dropbox": {
+      "name": "Dropbox, Inc.",
+      "tier": "trusted",
+      "signingNames": ["Dropbox, Inc."]
+    },
+    "citrix": {
+      "name": "Citrix Systems, Inc.",
+      "tier": "trusted",
+      "signingNames": ["Citrix Systems, Inc."]
+    },
+    "vmware": {
+      "name": "VMware, Inc.",
+      "tier": "trusted",
+      "signingNames": ["VMware, Inc."]
+    },
+    "oracle": {
+      "name": "Oracle Corporation",
+      "tier": "trusted",
+      "signingNames": ["Oracle Corporation", "Oracle America, Inc."]
+    },
+    "cisco": {
+      "name": "Cisco Systems, Inc.",
+      "tier": "trusted",
+      "signingNames": ["Cisco Systems, Inc."]
+    },
+    "jetbrains": {
+      "name": "JetBrains s.r.o.",
+      "tier": "trusted",
+      "signingNames": ["JetBrains s.r.o."]
+    },
+    "github": {
+      "name": "GitHub, Inc.",
+      "tier": "trusted",
+      "signingNames": ["GitHub, Inc."]
+    },
+    "atlassian": {
+      "name": "Atlassian Pty Ltd",
+      "tier": "trusted",
+      "signingNames": ["Atlassian Pty Ltd", "Atlassian"]
+    },
+    "logitech": {
+      "name": "Logitech Inc.",
+      "tier": "trusted",
+      "signingNames": ["Logitech Inc.", "Logitech"]
+    },
+    "intel": {
+      "name": "Intel Corporation",
+      "tier": "trusted",
+      "signingNames": ["Intel Corporation", "Intel(R)"]
+    },
+    "nvidia": {
+      "name": "NVIDIA Corporation",
+      "tier": "trusted",
+      "signingNames": ["NVIDIA Corporation"]
+    },
+    "amd": {
+      "name": "Advanced Micro Devices, Inc.",
+      "tier": "trusted",
+      "signingNames": ["Advanced Micro Devices", "AMD"]
+    },
+    "dell": {
+      "name": "Dell Inc.",
+      "tier": "trusted",
+      "signingNames": ["Dell Inc.", "Dell Technologies"]
+    },
+    "hp": {
+      "name": "HP Inc.",
+      "tier": "trusted",
+      "signingNames": ["HP Inc.", "Hewlett-Packard", "Hewlett Packard"]
+    },
+    "brother": {
+      "name": "Brother Industries, Ltd.",
+      "tier": "trusted",
+      "signingNames": ["Brother Industries", "Brother Industries, Ltd."]
+    },
+    "lenovo": {
+      "name": "Lenovo",
+      "tier": "trusted",
+      "signingNames": ["Lenovo", "Lenovo Group Limited"]
+    },
+    "putty": {
+      "name": "Simon Tatham",
+      "tier": "community",
+      "signingNames": ["Simon Tatham"]
+    },
+    "winscp": {
+      "name": "Martin Prikryl",
+      "tier": "community",
+      "signingNames": ["Martin Prikryl"]
+    },
+    "filezilla": {
+      "name": "FileZilla Project",
+      "tier": "caution",
+      "signingNames": ["Tim Kosse"]
+    },
+    "audacity": {
+      "name": "Audacity Team",
+      "tier": "community",
+      "signingNames": ["Audacity"]
+    },
+    "gimp": {
+      "name": "GIMP Team",
+      "tier": "community",
+      "signingNames": ["GIMP"]
+    },
+    "libreoffice": {
+      "name": "The Document Foundation",
+      "tier": "community",
+      "signingNames": ["The Document Foundation"]
+    },
+    "keepass": {
+      "name": "Dominik Reichl",
+      "tier": "community",
+      "signingNames": ["Dominik Reichl", "Open Source Developer, Dominik Reichl"]
+    },
+    "bitwarden": {
+      "name": "Bitwarden Inc.",
+      "tier": "verified",
+      "signingNames": ["Bitwarden Inc."]
+    },
+    "1password": {
+      "name": "AgileBits Inc.",
+      "tier": "trusted",
+      "signingNames": ["AgileBits Inc."]
+    },
+    "lastpass": {
+      "name": "LogMeIn, Inc.",
+      "tier": "trusted",
+      "signingNames": ["LogMeIn, Inc.", "LastPass"]
+    },
+    "malwarebytes": {
+      "name": "Malwarebytes Inc.",
+      "tier": "trusted",
+      "signingNames": ["Malwarebytes Inc.", "Malwarebytes Corporation"]
+    },
+    "teamviewer": {
+      "name": "TeamViewer Germany GmbH",
+      "tier": "trusted",
+      "signingNames": ["TeamViewer Germany GmbH", "TeamViewer GmbH"]
+    },
+    "anydesk": {
+      "name": "AnyDesk Software GmbH",
+      "tier": "verified",
+      "signingNames": ["AnyDesk Software GmbH", "philandro Software GmbH"]
+    },
+    "winrar": {
+      "name": "Alexander Roshal",
+      "tier": "verified",
+      "signingNames": ["Alexander Roshal", "win.rar GmbH"]
+    },
+    "python": {
+      "name": "Python Software Foundation",
+      "tier": "community",
+      "signingNames": ["Python Software Foundation"]
+    },
+    "nodejs": {
+      "name": "OpenJS Foundation",
+      "tier": "community",
+      "signingNames": ["OpenJS Foundation", "Node.js Foundation"]
+    },
+    "git": {
+      "name": "The Git Development Community",
+      "tier": "community",
+      "signingNames": ["Johannes Schindelin"]
+    },
+    "vscode": {
+      "name": "Microsoft Corporation",
+      "tier": "trusted",
+      "signingNames": ["Microsoft Corporation"]
+    },
+    "sublimetext": {
+      "name": "Sublime HQ Pty Ltd",
+      "tier": "verified",
+      "signingNames": ["Sublime HQ Pty Ltd"]
+    },
+    "postman": {
+      "name": "Postman, Inc.",
+      "tier": "verified",
+      "signingNames": ["Postman, Inc."]
+    },
+    "docker": {
+      "name": "Docker Inc.",
+      "tier": "trusted",
+      "signingNames": ["Docker Inc."]
+    },
+    "spotify": {
+      "name": "Spotify AB",
+      "tier": "trusted",
+      "signingNames": ["Spotify AB"]
+    },
+    "discord": {
+      "name": "Discord Inc.",
+      "tier": "verified",
+      "signingNames": ["Discord Inc."]
+    },
+    "steam": {
+      "name": "Valve Corporation",
+      "tier": "trusted",
+      "signingNames": ["Valve", "Valve Corporation"]
+    },
+    "obs": {
+      "name": "OBS Project",
+      "tier": "community",
+      "signingNames": ["OBS Project", "Hugh Bailey"]
+    },
+    "handbrake": {
+      "name": "HandBrake Team",
+      "tier": "community",
+      "signingNames": ["HandBrake Team"]
+    },
+    "greenshot": {
+      "name": "Greenshot",
+      "tier": "community",
+      "signingNames": ["Greenshot"]
+    },
+    "sharex": {
+      "name": "ShareX Team",
+      "tier": "community",
+      "signingNames": ["ShareX Team"]
+    },
+    "wireshark": {
+      "name": "Wireshark Foundation",
+      "tier": "community",
+      "signingNames": ["Wireshark Foundation", "Gerald Combs"]
+    },
+    "sysinternals": {
+      "name": "Microsoft Corporation",
+      "tier": "trusted",
+      "signingNames": ["Microsoft Corporation"]
+    },
+    "wolfram": {
+      "name": "Wolfram Research, Inc.",
+      "tier": "trusted",
+      "signingNames": ["Wolfram Research, Inc.", "Wolfram Research"]
+    }
+  },
+  "software": [
+    {
+      "id": "chrome",
+      "names": ["chrome", "google chrome", "chrome browser"],
+      "publisher": "google",
+      "officialDomains": ["google.com", "chrome.google.com", "dl.google.com"],
+      "downloadPage": "https://www.google.com/chrome/",
+      "checksumUrl": null,
+      "notes": "Enterprise: use https://chromeenterprise.google/"
+    },
+    {
+      "id": "firefox",
+      "names": ["firefox", "mozilla firefox", "ff"],
+      "publisher": "mozilla",
+      "officialDomains": ["mozilla.org", "firefox.com", "download.mozilla.org"],
+      "downloadPage": "https://www.mozilla.org/firefox/",
+      "checksumUrl": "https://releases.mozilla.org/pub/firefox/releases/",
+      "notes": "SHA512SUMS available in release folders"
+    },
+    {
+      "id": "edge",
+      "names": ["edge", "microsoft edge", "msedge"],
+      "publisher": "microsoft",
+      "officialDomains": ["microsoft.com", "microsoftedge.com"],
+      "downloadPage": "https://www.microsoft.com/edge",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "vlc",
+      "names": ["vlc", "vlc media player", "vlc player", "videolan"],
+      "publisher": "videolan",
+      "officialDomains": ["videolan.org", "download.videolan.org"],
+      "downloadPage": "https://www.videolan.org/vlc/",
+      "checksumUrl": "https://www.videolan.org/vlc/download-windows.html",
+      "notes": "SHA256 shown on download page"
+    },
+    {
+      "id": "7zip",
+      "names": ["7zip", "7-zip", "7 zip", "sevenzip"],
+      "publisher": "7zip",
+      "officialDomains": ["7-zip.org"],
+      "downloadPage": "https://www.7-zip.org/download.html",
+      "checksumUrl": null,
+      "notes": "Verify signature - no official checksums published"
+    },
+    {
+      "id": "notepadpp",
+      "names": ["notepad++", "notepadplusplus", "npp", "notepad plus plus"],
+      "publisher": "notepadpp",
+      "officialDomains": ["notepad-plus-plus.org", "github.com/notepad-plus-plus"],
+      "downloadPage": "https://notepad-plus-plus.org/downloads/",
+      "checksumUrl": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases",
+      "notes": "SHA-256 hashes on GitHub releases"
+    },
+    {
+      "id": "vscode",
+      "names": ["vscode", "visual studio code", "vs code"],
+      "publisher": "vscode",
+      "officialDomains": ["visualstudio.com", "code.visualstudio.com", "vscode.dev"],
+      "downloadPage": "https://code.visualstudio.com/download",
+      "checksumUrl": "https://code.visualstudio.com/docs/supporting/faq#_what-is-the-checksum-for-the-vs-code-download",
+      "notes": "SHA256 available on FAQ page"
+    },
+    {
+      "id": "zoom",
+      "names": ["zoom", "zoom client", "zoom meetings", "zoom workplace"],
+      "publisher": "zoom",
+      "officialDomains": ["zoom.us", "zoom.com"],
+      "downloadPage": "https://zoom.us/download",
+      "checksumUrl": null,
+      "notes": "Enterprise: Use admin portal for managed installs"
+    },
+    {
+      "id": "slack",
+      "names": ["slack", "slack desktop"],
+      "publisher": "slack",
+      "officialDomains": ["slack.com", "downloads.slack-edge.com"],
+      "downloadPage": "https://slack.com/downloads/windows",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "teams",
+      "names": ["teams", "microsoft teams", "ms teams"],
+      "publisher": "microsoft",
+      "officialDomains": ["microsoft.com", "teams.microsoft.com"],
+      "downloadPage": "https://www.microsoft.com/microsoft-teams/download-app",
+      "checksumUrl": null,
+      "notes": "New Teams is included in Windows 11"
+    },
+    {
+      "id": "adobe-reader",
+      "names": ["adobe reader", "acrobat reader", "pdf reader", "acrobat"],
+      "publisher": "adobe",
+      "officialDomains": ["adobe.com", "get.adobe.com", "ardownload2.adobe.com"],
+      "downloadPage": "https://get.adobe.com/reader/",
+      "checksumUrl": null,
+      "notes": "Enterprise: Use Adobe Admin Console"
+    },
+    {
+      "id": "putty",
+      "names": ["putty", "putty ssh"],
+      "publisher": "putty",
+      "officialDomains": ["chiark.greenend.org.uk", "putty.org"],
+      "downloadPage": "https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html",
+      "checksumUrl": "https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html",
+      "notes": "SHA256 hashes on download page - GPG signatures available"
+    },
+    {
+      "id": "winscp",
+      "names": ["winscp", "win scp"],
+      "publisher": "winscp",
+      "officialDomains": ["winscp.net"],
+      "downloadPage": "https://winscp.net/eng/download.php",
+      "checksumUrl": "https://winscp.net/eng/downloads.php",
+      "notes": "SHA-256 on download page"
+    },
+    {
+      "id": "filezilla",
+      "names": ["filezilla", "filezilla client"],
+      "publisher": "filezilla",
+      "officialDomains": ["filezilla-project.org"],
+      "downloadPage": "https://filezilla-project.org/download.php",
+      "checksumUrl": null,
+      "notes": "CAUTION: Often bundled with adware - verify clean installer"
+    },
+    {
+      "id": "java",
+      "names": ["java", "jre", "jdk", "java runtime"],
+      "publisher": "oracle",
+      "officialDomains": ["oracle.com", "java.com"],
+      "downloadPage": "https://www.java.com/download/",
+      "checksumUrl": "https://www.oracle.com/java/technologies/downloads/",
+      "notes": "SHA256 on Oracle download pages"
+    },
+    {
+      "id": "dotnet",
+      "names": [".net", "dotnet", ".net runtime", ".net framework"],
+      "publisher": "microsoft",
+      "officialDomains": ["microsoft.com", "dotnet.microsoft.com"],
+      "downloadPage": "https://dotnet.microsoft.com/download",
+      "checksumUrl": "https://dotnet.microsoft.com/download/dotnet",
+      "notes": "SHA512 available on download pages"
+    },
+    {
+      "id": "python",
+      "names": ["python", "python3"],
+      "publisher": "python",
+      "officialDomains": ["python.org"],
+      "downloadPage": "https://www.python.org/downloads/",
+      "checksumUrl": "https://www.python.org/downloads/",
+      "notes": "MD5/SHA256 on download pages"
+    },
+    {
+      "id": "git",
+      "names": ["git", "git for windows", "git scm"],
+      "publisher": "git",
+      "officialDomains": ["git-scm.com", "github.com/git-for-windows"],
+      "downloadPage": "https://git-scm.com/download/win",
+      "checksumUrl": "https://github.com/git-for-windows/git/releases",
+      "notes": "SHA256 on GitHub releases"
+    },
+    {
+      "id": "nodejs",
+      "names": ["node", "nodejs", "node.js"],
+      "publisher": "nodejs",
+      "officialDomains": ["nodejs.org"],
+      "downloadPage": "https://nodejs.org/en/download/",
+      "checksumUrl": "https://nodejs.org/dist/",
+      "notes": "SHASUMS256.txt in each release folder"
+    },
+    {
+      "id": "dropbox",
+      "names": ["dropbox"],
+      "publisher": "dropbox",
+      "officialDomains": ["dropbox.com"],
+      "downloadPage": "https://www.dropbox.com/install",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "onedrive",
+      "names": ["onedrive", "microsoft onedrive"],
+      "publisher": "microsoft",
+      "officialDomains": ["microsoft.com", "onedrive.live.com"],
+      "downloadPage": "https://www.microsoft.com/microsoft-365/onedrive/download",
+      "checksumUrl": null,
+      "notes": "Included in Windows 10/11"
+    },
+    {
+      "id": "teamviewer",
+      "names": ["teamviewer", "team viewer"],
+      "publisher": "teamviewer",
+      "officialDomains": ["teamviewer.com"],
+      "downloadPage": "https://www.teamviewer.com/download/",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "anydesk",
+      "names": ["anydesk", "any desk"],
+      "publisher": "anydesk",
+      "officialDomains": ["anydesk.com"],
+      "downloadPage": "https://anydesk.com/download",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "winrar",
+      "names": ["winrar", "win rar"],
+      "publisher": "winrar",
+      "officialDomains": ["rarlab.com", "win-rar.com"],
+      "downloadPage": "https://www.win-rar.com/download.html",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "keepass",
+      "names": ["keepass", "keepass2", "keepassxc"],
+      "publisher": "keepass",
+      "officialDomains": ["keepass.info", "keepassxc.org"],
+      "downloadPage": "https://keepass.info/download.html",
+      "checksumUrl": "https://keepass.info/integrity.html",
+      "notes": "SHA-256 and digital signatures available"
+    },
+    {
+      "id": "bitwarden",
+      "names": ["bitwarden"],
+      "publisher": "bitwarden",
+      "officialDomains": ["bitwarden.com", "github.com/bitwarden"],
+      "downloadPage": "https://bitwarden.com/download/",
+      "checksumUrl": "https://github.com/bitwarden/clients/releases",
+      "notes": "SHA256 on GitHub releases"
+    },
+    {
+      "id": "malwarebytes",
+      "names": ["malwarebytes", "mbam"],
+      "publisher": "malwarebytes",
+      "officialDomains": ["malwarebytes.com"],
+      "downloadPage": "https://www.malwarebytes.com/mwb-download",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "libreoffice",
+      "names": ["libreoffice", "libre office"],
+      "publisher": "libreoffice",
+      "officialDomains": ["libreoffice.org", "download.documentfoundation.org"],
+      "downloadPage": "https://www.libreoffice.org/download/download/",
+      "checksumUrl": "https://download.documentfoundation.org/libreoffice/stable/",
+      "notes": "SHA256 checksums in download folders"
+    },
+    {
+      "id": "gimp",
+      "names": ["gimp", "gnu image"],
+      "publisher": "gimp",
+      "officialDomains": ["gimp.org"],
+      "downloadPage": "https://www.gimp.org/downloads/",
+      "checksumUrl": "https://download.gimp.org/gimp/",
+      "notes": "SHA256 available"
+    },
+    {
+      "id": "audacity",
+      "names": ["audacity"],
+      "publisher": "audacity",
+      "officialDomains": ["audacityteam.org", "github.com/audacity"],
+      "downloadPage": "https://www.audacityteam.org/download/",
+      "checksumUrl": "https://github.com/audacity/audacity/releases",
+      "notes": null
+    },
+    {
+      "id": "obs",
+      "names": ["obs", "obs studio", "open broadcaster"],
+      "publisher": "obs",
+      "officialDomains": ["obsproject.com", "github.com/obsproject"],
+      "downloadPage": "https://obsproject.com/download",
+      "checksumUrl": "https://github.com/obsproject/obs-studio/releases",
+      "notes": null
+    },
+    {
+      "id": "handbrake",
+      "names": ["handbrake", "hand brake"],
+      "publisher": "handbrake",
+      "officialDomains": ["handbrake.fr", "github.com/HandBrake"],
+      "downloadPage": "https://handbrake.fr/downloads.php",
+      "checksumUrl": "https://handbrake.fr/downloads.php",
+      "notes": "SHA256 on download page"
+    },
+    {
+      "id": "spotify",
+      "names": ["spotify"],
+      "publisher": "spotify",
+      "officialDomains": ["spotify.com"],
+      "downloadPage": "https://www.spotify.com/download/windows/",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "discord",
+      "names": ["discord"],
+      "publisher": "discord",
+      "officialDomains": ["discord.com", "discordapp.com"],
+      "downloadPage": "https://discord.com/download",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "steam",
+      "names": ["steam", "steam client"],
+      "publisher": "steam",
+      "officialDomains": ["steampowered.com", "store.steampowered.com"],
+      "downloadPage": "https://store.steampowered.com/about/",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "docker",
+      "names": ["docker", "docker desktop"],
+      "publisher": "docker",
+      "officialDomains": ["docker.com"],
+      "downloadPage": "https://www.docker.com/products/docker-desktop/",
+      "checksumUrl": "https://docs.docker.com/desktop/release-notes/",
+      "notes": "Checksums in release notes"
+    },
+    {
+      "id": "postman",
+      "names": ["postman"],
+      "publisher": "postman",
+      "officialDomains": ["postman.com", "getpostman.com"],
+      "downloadPage": "https://www.postman.com/downloads/",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "github-desktop",
+      "names": ["github desktop", "github"],
+      "publisher": "github",
+      "officialDomains": ["github.com", "desktop.github.com"],
+      "downloadPage": "https://desktop.github.com/",
+      "checksumUrl": "https://github.com/desktop/desktop/releases",
+      "notes": null
+    },
+    {
+      "id": "sublimetext",
+      "names": ["sublime", "sublime text", "sublimetext"],
+      "publisher": "sublimetext",
+      "officialDomains": ["sublimetext.com", "sublimehq.com"],
+      "downloadPage": "https://www.sublimetext.com/download",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "intellij",
+      "names": ["intellij", "intellij idea", "idea"],
+      "publisher": "jetbrains",
+      "officialDomains": ["jetbrains.com"],
+      "downloadPage": "https://www.jetbrains.com/idea/download/",
+      "checksumUrl": "https://www.jetbrains.com/idea/download/",
+      "notes": "SHA256 on download page"
+    },
+    {
+      "id": "pycharm",
+      "names": ["pycharm"],
+      "publisher": "jetbrains",
+      "officialDomains": ["jetbrains.com"],
+      "downloadPage": "https://www.jetbrains.com/pycharm/download/",
+      "checksumUrl": "https://www.jetbrains.com/pycharm/download/",
+      "notes": "SHA256 on download page"
+    },
+    {
+      "id": "webstorm",
+      "names": ["webstorm"],
+      "publisher": "jetbrains",
+      "officialDomains": ["jetbrains.com"],
+      "downloadPage": "https://www.jetbrains.com/webstorm/download/",
+      "checksumUrl": "https://www.jetbrains.com/webstorm/download/",
+      "notes": "SHA256 on download page"
+    },
+    {
+      "id": "wireshark",
+      "names": ["wireshark"],
+      "publisher": "wireshark",
+      "officialDomains": ["wireshark.org"],
+      "downloadPage": "https://www.wireshark.org/download.html",
+      "checksumUrl": "https://www.wireshark.org/download.html",
+      "notes": "SHA256 on download page"
+    },
+    {
+      "id": "sharex",
+      "names": ["sharex", "share x"],
+      "publisher": "sharex",
+      "officialDomains": ["getsharex.com", "github.com/ShareX"],
+      "downloadPage": "https://getsharex.com/",
+      "checksumUrl": "https://github.com/ShareX/ShareX/releases",
+      "notes": null
+    },
+    {
+      "id": "greenshot",
+      "names": ["greenshot"],
+      "publisher": "greenshot",
+      "officialDomains": ["getgreenshot.org", "github.com/greenshot"],
+      "downloadPage": "https://getgreenshot.org/downloads/",
+      "checksumUrl": "https://github.com/greenshot/greenshot/releases",
+      "notes": null
+    },
+    {
+      "id": "powertoys",
+      "names": ["powertoys", "power toys", "microsoft powertoys"],
+      "publisher": "microsoft",
+      "officialDomains": ["microsoft.com", "github.com/microsoft/PowerToys"],
+      "downloadPage": "https://learn.microsoft.com/windows/powertoys/install",
+      "checksumUrl": "https://github.com/microsoft/PowerToys/releases",
+      "notes": null
+    },
+    {
+      "id": "sysinternals",
+      "names": ["sysinternals", "procmon", "process monitor", "procexp", "process explorer", "autoruns"],
+      "publisher": "sysinternals",
+      "officialDomains": ["microsoft.com", "sysinternals.com", "live.sysinternals.com"],
+      "downloadPage": "https://learn.microsoft.com/sysinternals/downloads/",
+      "checksumUrl": null,
+      "notes": "All tools signed by Microsoft"
+    },
+    {
+      "id": "nvidia-drivers",
+      "names": ["nvidia driver", "nvidia drivers", "geforce driver", "geforce experience"],
+      "publisher": "nvidia",
+      "officialDomains": ["nvidia.com", "geforce.com"],
+      "downloadPage": "https://www.nvidia.com/Download/index.aspx",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "amd-drivers",
+      "names": ["amd driver", "amd drivers", "radeon driver", "adrenalin"],
+      "publisher": "amd",
+      "officialDomains": ["amd.com"],
+      "downloadPage": "https://www.amd.com/support",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "intel-drivers",
+      "names": ["intel driver", "intel drivers", "intel dsa"],
+      "publisher": "intel",
+      "officialDomains": ["intel.com", "downloadcenter.intel.com"],
+      "downloadPage": "https://www.intel.com/content/www/us/en/support/detect.html",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "dell-command",
+      "names": ["dell command update", "dell update", "dell supportassist"],
+      "publisher": "dell",
+      "officialDomains": ["dell.com"],
+      "downloadPage": "https://www.dell.com/support/home/",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "hp-support",
+      "names": ["hp support assistant", "hp assistant"],
+      "publisher": "hp",
+      "officialDomains": ["hp.com", "support.hp.com"],
+      "downloadPage": "https://support.hp.com/",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "hp-printer",
+      "names": ["hp printer", "hp printer driver", "hp driver", "hp smart", "hp easy start", "hp laserjet", "hp officejet", "hp envy", "hp deskjet"],
+      "publisher": "hp",
+      "officialDomains": ["hp.com", "support.hp.com", "123.hp.com"],
+      "downloadPage": "https://support.hp.com/drivers",
+      "checksumUrl": null,
+      "notes": "Use HP Smart app from Microsoft Store when possible"
+    },
+    {
+      "id": "brother-printer",
+      "names": ["brother printer", "brother driver", "brother printer driver", "brother mfc", "brother hl", "brother dcp"],
+      "publisher": "brother",
+      "officialDomains": ["brother.com", "support.brother.com", "brother-usa.com"],
+      "downloadPage": "https://support.brother.com/",
+      "checksumUrl": null,
+      "notes": "Download from Brother support site for your specific model"
+    },
+    {
+      "id": "lenovo-vantage",
+      "names": ["lenovo vantage", "lenovo system update"],
+      "publisher": "lenovo",
+      "officialDomains": ["lenovo.com", "support.lenovo.com"],
+      "downloadPage": "https://support.lenovo.com/",
+      "checksumUrl": null,
+      "notes": "Vantage available from Microsoft Store"
+    },
+    {
+      "id": "citrix-workspace",
+      "names": ["citrix workspace", "citrix receiver", "citrix"],
+      "publisher": "citrix",
+      "officialDomains": ["citrix.com"],
+      "downloadPage": "https://www.citrix.com/downloads/workspace-app/",
+      "checksumUrl": "https://www.citrix.com/downloads/workspace-app/",
+      "notes": "SHA256 on download page"
+    },
+    {
+      "id": "vmware-workstation",
+      "names": ["vmware workstation", "vmware player", "vmware"],
+      "publisher": "vmware",
+      "officialDomains": ["vmware.com"],
+      "downloadPage": "https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html",
+      "checksumUrl": "https://www.vmware.com/go/getworkstation-win",
+      "notes": "SHA256 on download page"
+    },
+    {
+      "id": "virtualbox",
+      "names": ["virtualbox", "vbox", "oracle virtualbox"],
+      "publisher": "oracle",
+      "officialDomains": ["oracle.com", "virtualbox.org"],
+      "downloadPage": "https://www.virtualbox.org/wiki/Downloads",
+      "checksumUrl": "https://www.virtualbox.org/download/hashes/",
+      "notes": "SHA256 hashes available"
+    },
+    {
+      "id": "1password",
+      "names": ["1password", "one password", "onepassword"],
+      "publisher": "1password",
+      "officialDomains": ["1password.com"],
+      "downloadPage": "https://1password.com/downloads/",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "lastpass",
+      "names": ["lastpass", "last pass"],
+      "publisher": "lastpass",
+      "officialDomains": ["lastpass.com"],
+      "downloadPage": "https://www.lastpass.com/misc_download2.php",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "logitech-options",
+      "names": ["logitech options", "logi options", "logitech ghub", "g hub"],
+      "publisher": "logitech",
+      "officialDomains": ["logitech.com", "logi.com"],
+      "downloadPage": "https://www.logitech.com/software/options.html",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "itunes",
+      "names": ["itunes"],
+      "publisher": "apple",
+      "officialDomains": ["apple.com"],
+      "downloadPage": "https://www.apple.com/itunes/download/win64",
+      "checksumUrl": null,
+      "notes": "Also available from Microsoft Store"
+    },
+    {
+      "id": "icloud",
+      "names": ["icloud", "icloud for windows"],
+      "publisher": "apple",
+      "officialDomains": ["apple.com"],
+      "downloadPage": "https://support.apple.com/HT204283",
+      "checksumUrl": null,
+      "notes": "Available from Microsoft Store"
+    },
+    {
+      "id": "office365",
+      "names": ["office", "office 365", "microsoft 365", "m365", "word", "excel", "outlook", "powerpoint"],
+      "publisher": "microsoft",
+      "officialDomains": ["microsoft.com", "office.com", "officecdn.microsoft.com"],
+      "downloadPage": "https://www.microsoft.com/microsoft-365/",
+      "checksumUrl": null,
+      "notes": "Use Office Deployment Tool for enterprise"
+    },
+    {
+      "id": "webex",
+      "names": ["webex", "cisco webex", "webex meetings"],
+      "publisher": "cisco",
+      "officialDomains": ["webex.com", "cisco.com"],
+      "downloadPage": "https://www.webex.com/downloads.html",
+      "checksumUrl": null,
+      "notes": null
+    },
+    {
+      "id": "jabber",
+      "names": ["jabber", "cisco jabber"],
+      "publisher": "cisco",
+      "officialDomains": ["cisco.com", "webex.com"],
+      "downloadPage": "https://www.cisco.com/c/en/us/products/unified-communications/jabber/index.html",
+      "checksumUrl": null,
+      "notes": "Enterprise unified communications client"
+    },
+    {
+      "id": "mathematica",
+      "names": ["mathematica", "wolfram mathematica", "wolfram"],
+      "publisher": "wolfram",
+      "officialDomains": ["wolfram.com", "mathematica.com"],
+      "downloadPage": "https://www.wolfram.com/mathematica/",
+      "checksumUrl": null,
+      "notes": "Commercial software - requires license"
+    }
+  ]
+}
