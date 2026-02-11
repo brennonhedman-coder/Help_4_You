@@ -203,7 +203,7 @@
     },
     "anydesk": {
       "name": "AnyDesk Software GmbH",
-      "tier": "verified",
+      "tier": "caution",
       "signingNames": ["AnyDesk Software GmbH", "philandro Software GmbH"]
     },
     "winrar": {
@@ -903,3 +903,4 @@
     }
   ]
 }
+
