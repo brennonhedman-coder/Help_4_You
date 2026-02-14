@@ -1,4 +1,4 @@
-# DISM-SFC-Tool v7
+# Help Desk Repair Tool v7
 
 WPF GUI for one-click DISM and SFC system image repair with a smart mode that skips unnecessary steps.
 
@@ -18,7 +18,7 @@ WPF GUI for one-click DISM and SFC system image repair with a smart mode that sk
 2. Run the script:
 
 ```powershell
-.\DISM-SFC-Tool_v7.ps1
+.\HelpDesk-RepairTool_v7.ps1
 ```
 
 The GUI launches centered on screen. Select any action button to begin.
@@ -129,8 +129,8 @@ The GUI launches centered on screen. Select any action button to begin.
 
 ```
 D:\4production\
-+-- DISM-SFC-Tool_v7.ps1        # This tool
-+-- DISM-SFC-Tool_v7_README.md   # This file
++-- HelpDesK-RepairTool_v7.ps1        # This tool
++-- HelpDesK-RepairTool_v7_README.md   # This file
 ```
 
 This is a standalone endpoint repair tool. It wraps built-in Windows commands (`DISM.exe`, `sfc.exe`) into a single GUI for Help Desk technicians and system administrators. No external modules or dependencies required.
@@ -183,3 +183,4 @@ This is a standalone endpoint repair tool. It wraps built-in Windows commands (`
 - DISM and SFC output may reveal system configuration details; treat output with appropriate confidentiality
 - The script is code-signed; re-sign after any modifications to maintain AllSigned execution policy compliance
 - RestoreHealth downloads files from Microsoft Windows Update servers; ensure this traffic is permitted by network policy
+
